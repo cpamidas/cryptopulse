@@ -12,14 +12,14 @@ generate_commit_message() {
   echo "$verb $object $context"
 }
 
-N=10  # число коммитов
+N=50  # число коммитов
 
 for i in $(seq 1 $N); do
   echo "entry $i" >> log.txt
   git add .
 
   # равномерное распределение по году
-  base_days=$(( (365 / N) * i ))
+  base_days=$(( (730 / N) * i ))
   random_shift=$((RANDOM % 10 - 5))   # случайный сдвиг ±5 дней
   days=$((base_days + random_shift))
   if [ $days -lt 1 ]; then days=1; fi
@@ -37,6 +37,6 @@ for i in $(seq 1 $N); do
   git push origin main
 
   # задержка между 4 и 8 минутами
-  sleep $((RANDOM % 241 + 240))
+  sleep $((RANDOM % 241 + 440))
 done
 

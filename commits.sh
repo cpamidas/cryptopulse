@@ -12,7 +12,7 @@ generate_commit_message() {
   echo "$verb $object $context"
 }
 
-N=50  # число коммитов
+N=20  # число коммитов
 
 for i in $(seq 1 $N); do
   echo "entry $i" >> log.txt
@@ -37,6 +37,6 @@ for i in $(seq 1 $N); do
   git push origin main
 
   # задержка между 4 и 8 минутами
-  sleep $((RANDOM % 241 + 440))
+  sleep $((RANDOM % 141 + 440))
 done
 

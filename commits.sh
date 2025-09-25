@@ -19,7 +19,7 @@ for i in $(seq 1 $N); do
   git add .
 
   # равномерное распределение по году
-  base_days=$(( (730 / N) * i ))
+  base_days=$(( (160 / N) * i ))
   random_shift=$((RANDOM % 10 - 5))   # случайный сдвиг ±5 дней
   days=$((base_days + random_shift))
   if [ $days -lt 1 ]; then days=1; fi
